@@ -1,34 +1,32 @@
+using DesignPatterns.Views;
+
 namespace DesignPatterns.App
 {
     public class Application
     {
-        private string[] _options = ["Factory", "Exit"];
-        private int _selectedAnswer = 0;
-        private bool _isRunning = true;
+        public bool IsRunning { get; private set; } = true;
+        public IView? CurrentView { get; private set; }
 
+        public Application()
+        {
+            CurrentView = new MainScreen(this);
+        }
+
+        public void ChangeView(IView view)
+        {
+            CurrentView = view;
+        }
+
+        public void Stop()
+        {
+            Console.WriteLine("See you later!");
+            IsRunning = false;
+        }
         public void Run()
         {
-            while (_isRunning)
+            while (IsRunning)
             {
-                Console.Clear();
-                Console.WriteLine("=== Welcome To Design Patterns in C# ===");
-                Console.WriteLine();
-
-                Console.WriteLine("Please select an option:");
-                for (int i = 0; i < _options.Length; i++)
-                {
-                    Console.WriteLine(i == _selectedAnswer ? $"> {_options[i]}" : _options[i]);
-                }
-
-                ConsoleKeyInfo a = Console.ReadKey(intercept: true);
-                if (a.Key == ConsoleKey.UpArrow)
-                {
-                    if(_selectedAnswer > 0) _selectedAnswer--;
-                }
-                else if (a.Key == ConsoleKey.DownArrow)
-                {
-                    if(_selectedAnswer < _options.Length - 1) _selectedAnswer++;
-                }
+                CurrentView?.Render();
             }
         }
     }
