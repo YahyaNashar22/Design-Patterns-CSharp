@@ -1,4 +1,5 @@
-﻿using DesignPatterns.App;
+﻿using DesignPatterns.Animations;
+using DesignPatterns.App;
 
 namespace DesignPatterns
 {
@@ -7,6 +8,7 @@ namespace DesignPatterns
         public static void Main(string[] args)
         {
             Application app = new();
+            RotatingGalaxyASCII.Play(2500);
             app.Run();
         }
     }
