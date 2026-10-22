@@ -11,14 +11,36 @@ namespace DesignPatterns.Patterns.Factory
         }
         public override void Render()
         {
-            Console.WriteLine("=== Factory Pattern ===");
-            Console.WriteLine("Factory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.");
+            Intro();
 
             ConsoleKeyInfo a = Console.ReadKey(intercept: true);
             if (a.Key == ConsoleKey.Backspace)
             {
                 App.ChangeView(new MainScreen(App));
             }
+        }
+
+        private void Intro()
+        {
+            Console.WriteLine("=== Factory Pattern ===");
+            Console.WriteLine();
+            Console.WriteLine("Factory Method is a creational design pattern that provides an interface for creating objects in a superclass,\nbut allows subclasses to alter the type of objects that will be created.");
+
+            Console.WriteLine();
+
+            Console.WriteLine(
+                """
+                  .---------.
+                  |.-------.|
+                  ||>run#  ||
+                  ||       ||Factory
+                  |"-------'|Pattern
+                .-^---------^-.
+                | ---~  Yahya |
+                "-------------'
+
+                """
+            );
         }
     }
 }
