@@ -1,0 +1,33 @@
+## Professional .NET / C# Gitignore
+
+# --------- Build Artifacts ---------
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# --------- Visual Studio (VS) Temporary Files ---------
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# --------- JetBrains Rider / Resharper ---------
+.idea/
+*.sln.DotSettings.user
+
+# --------- NuGet Packages ---------
+*.nuget.props
+*.nuget.targets
+# If using a local 'packages' folder (older .NET Framework style)
+packages/
+
+# --------- OS Generated Files ---------
+.DS_Store
+Thumbs.db
+
+# --------- User / Environment Secrets ---------
+*.usersecret
+.env
+appsettings.Development.json
