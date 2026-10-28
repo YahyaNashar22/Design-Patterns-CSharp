@@ -10,7 +10,8 @@ namespace DesignPatterns.Patterns
 
         public override void Render()
         {
-            throw new NotImplementedException();
+            Intro();
+            Back();
         }
 
         private void Intro()

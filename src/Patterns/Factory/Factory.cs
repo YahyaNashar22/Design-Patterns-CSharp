@@ -9,12 +9,7 @@ namespace DesignPatterns.Patterns.Factory
         public override void Render()
         {
             Intro();
-
-            ConsoleKeyInfo a = Console.ReadKey(intercept: true);
-            if (a.Key == ConsoleKey.Backspace)
-            {
-                App.ChangeView(new MainScreen(App));
-            }
+            Back();
         }
 
         private void Intro()

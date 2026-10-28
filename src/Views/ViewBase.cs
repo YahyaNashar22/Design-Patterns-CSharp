@@ -12,5 +12,14 @@ namespace DesignPatterns.Views
         }
 
         public abstract void Render();
+
+        public virtual void Back()
+        {
+            ConsoleKeyInfo a = Console.ReadKey(intercept: true);
+            if (a.Key == ConsoleKey.Backspace)
+            {
+                App.ChangeView(new MainScreen(App));
+            }
+        }
     }
 }
