@@ -4,12 +4,8 @@ using DesignPatterns.Views;
 
 namespace DesignPatterns.Patterns.Factory
 {
-    public class Factory : ViewBase
+    public class Factory(Application app) : ViewBase(app)
     {
-        public Factory(Application app) : base(app)
-        {
-
-        }
         public override void Render()
         {
             Intro();

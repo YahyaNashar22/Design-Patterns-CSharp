@@ -4,16 +4,12 @@ using DesignPatterns.Patterns.Factory;
 
 namespace DesignPatterns.Views
 {
-    public class MainScreen : ViewBase
+    public class MainScreen(Application app) : ViewBase(app)
     {
-        private readonly Application _app;
+        private readonly Application _app = app;
         private string[] _options = ["Factory", "Strategy", "Exit"];
         private int _selectedAnswer = 0;
 
-        public MainScreen(Application app) : base(app)
-        {
-            _app = app;
-        }
         public override void Render()
         {
             Console.Clear();

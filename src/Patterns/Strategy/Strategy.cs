@@ -4,13 +4,10 @@ using DesignPatterns.Views;
 
 namespace DesignPatterns.Patterns
 {
-    public class Strategy : ViewBase
+    public class Strategy(Application app) : ViewBase(app)
     {
         private string _patternName = "Strategy";
-        public Strategy(Application app) : base(app)
-        {
 
-        }
         public override void Render()
         {
             throw new NotImplementedException();

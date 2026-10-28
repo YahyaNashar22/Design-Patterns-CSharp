@@ -1,0 +1,4 @@
+namespace DesignPatterns.Patterns.StrategyPattern
+{
+
+}
