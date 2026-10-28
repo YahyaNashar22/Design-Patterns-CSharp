@@ -1,59 +1,60 @@
 namespace DesignPatterns.Patterns.StrategyPattern
 {
-    interface IReloadable
+    interface IWeaponBehavior
     {
-        void Reload();
+        public void PerformAttack();
     }
-    abstract class Weapon
+    class StabBehavior() : IWeaponBehavior
     {
-        public abstract void Attack();
-    }
-    class Knife : Weapon
-    {
-        public override void Attack()
+        public void PerformAttack()
         {
             Console.WriteLine("stab stab stab");
         }
     }
 
-    class Pistol : Weapon, IReloadable
+    class SlashBehavior() : IWeaponBehavior
     {
-        public override void Attack()
+        public void PerformAttack()
         {
-            Console.WriteLine("pew pew");
+            Console.WriteLine("slash slash slash");
+        }
+    }
+    abstract class Weapon
+    {
+        private IWeaponBehavior _weaponBehavior;
+
+        public Weapon(IWeaponBehavior weaponBehavior)
+        {
+            _weaponBehavior = weaponBehavior;
+        }
+        public void Attack()
+        {
+            _weaponBehavior.PerformAttack();
         }
 
-        public void Reload()
+        public void SetWeaponBehavior(IWeaponBehavior weaponBehavior)
         {
-            Console.WriteLine("reloading . . .");
+            _weaponBehavior = weaponBehavior;
         }
     }
 
-    class AK47 : Weapon, IReloadable
+    class Knife : Weapon
     {
-        public override void Attack()
+        public Knife() : base(new StabBehavior())
         {
-            Console.WriteLine("ta ta ta ta ta ");
-        }
 
-        public void Reload()
-        {
-            Console.WriteLine("reloading . . .");
         }
     }
 
-
-
-
-
-    class ImplementationRunner() : IImplementationRunner
+    public class StrategyImplementationRunner() : IImplementationRunner
     {
-
         public void Run()
         {
+            Weapon knife = new Knife();
+            knife.Attack();
 
+            knife.SetWeaponBehavior(new SlashBehavior());
+            knife.Attack();
         }
     }
-
-
 }

@@ -1,6 +1,7 @@
 using DesignPatterns.App;
 using DesignPatterns.Utility;
 using DesignPatterns.Views;
+using DesignPatterns.Patterns.StrategyPattern;
 
 namespace DesignPatterns.Patterns
 {
@@ -16,9 +17,22 @@ namespace DesignPatterns.Patterns
 
         private void Intro()
         {
+
+
             Console.WriteLine($"=== {_patternName} Pattern ===");
             Console.WriteLine();
             Console.WriteLine("The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable.\nStrategy lets the algorithm vary independently from clients that use it.");
+
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+            StrategyImplementationRunner strategyImplementationRunner = new();
+            strategyImplementationRunner.Run();
+
+
+            Console.WriteLine();
+            Console.WriteLine();
 
             DisplayUtilities.PrintPatternName(_patternName);
         }
