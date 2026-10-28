@@ -1,4 +1,5 @@
 using DesignPatterns.App;
+using DesignPatterns.Patterns;
 using DesignPatterns.Patterns.Factory;
 
 namespace DesignPatterns.Views
@@ -6,7 +7,7 @@ namespace DesignPatterns.Views
     public class MainScreen : ViewBase
     {
         private readonly Application _app;
-        private string[] _options = ["Factory", "Exit"];
+        private string[] _options = ["Factory", "Strategy", "Exit"];
         private int _selectedAnswer = 0;
 
         public MainScreen(Application app) : base(app)
@@ -41,6 +42,10 @@ namespace DesignPatterns.Views
                 {
                     case "Factory":
                         _app.ChangeView(new Factory(App));
+                        break;
+                    
+                    case "Strategy":
+                        _app.ChangeView(new Strategy(App));
                         break;
 
                     case "Exit":
