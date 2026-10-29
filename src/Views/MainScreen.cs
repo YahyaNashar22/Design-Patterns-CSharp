@@ -7,7 +7,7 @@ namespace DesignPatterns.Views
     public class MainScreen(Application app) : ViewBase(app)
     {
         private readonly Application _app = app;
-        private string[] _options = ["Factory", "Strategy", "Exit"];
+        private string[] _options = ["Factory", "Strategy", "Observer", "Exit"];
         private int _selectedAnswer = 0;
 
         public override void Render()
@@ -39,9 +39,13 @@ namespace DesignPatterns.Views
                     case "Factory":
                         _app.ChangeView(new Factory(App));
                         break;
-                    
+
                     case "Strategy":
                         _app.ChangeView(new Strategy(App));
+                        break;
+
+                    case "Observer":
+                        _app.ChangeView(new Observer(App));
                         break;
 
                     case "Exit":
