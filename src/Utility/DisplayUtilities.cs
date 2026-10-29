@@ -22,5 +22,13 @@ namespace DesignPatterns.Utility
 
             Console.WriteLine();
         }
+
+        public static void Divider()
+        {
+            Console.WriteLine();
+            Console.WriteLine("======================================================");
+            Console.WriteLine("======================================================");
+            Console.WriteLine();
+        }
     }
 }

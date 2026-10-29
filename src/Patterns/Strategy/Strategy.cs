@@ -24,15 +24,12 @@ namespace DesignPatterns.Patterns
             Console.WriteLine("The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable.\nStrategy lets the algorithm vary independently from clients that use it.");
 
 
-            Console.WriteLine();
-            Console.WriteLine();
+            DisplayUtilities.Divider();
 
             StrategyImplementationRunner strategyImplementationRunner = new();
             strategyImplementationRunner.Run();
 
-
-            Console.WriteLine();
-            Console.WriteLine();
+            DisplayUtilities.Divider();
 
             DisplayUtilities.PrintPatternName(_patternName);
         }
